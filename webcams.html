@@ -10,9 +10,23 @@
               element.src = element.src.split('&')[0] + '&t=' + new Date().getTime();
           }, 2000); // refresh every 2 seconds
       }
+      function refreshWebcam(element) {
+          setTimeout(function() {
+              url_split = element.src.split('&');
+              console.log(url_split);
+              url_split[url_split.length-1] = 'r=' + new Date().getTime();
+              element.src = url_split.join('&');
+          }, 500); // refresh every 2 seconds
+      }
     </script>
   </head>
   <body>
     <img src="https://www6.modot.mo.gov/modotccw/ModotCamCaptureWeb/GetCamImage.ashx?id=DCD63_kingshighway" alt="MoDOT traffic camera on the intersection of Kingshighway and US-63" title="MoDOT traffic camera on the intersection of Kingshighway and US-63" onload="refreshMoDOT(this)" />
+    <img src="https://www6.modot.mo.gov/modotccw/ModotCamCaptureWeb/GetCamImage.ashx?id=DCDi44mm186_3e" alt="MoDOT traffic camera on the intersection of I-44 and US-63" title="MoDOT traffic camera on the intersection of I-44 and US-63" onload="refreshMoDOT(this)" />
+    
+    <img src="http://184.0.192.54/stream.jpg" alt="Phelps County Court House facing towards Downtown Rolla" title="Phelps County Court House facing towards Downtown Rolla" />
+    <img src="http://184.0.192.53/stream.jpg" alt="Phelps County Court House facing towards Walgreens" title="Phelps County Court House facing towards Walgreens" />
+    
+    <img src="http://64.251.145.62:8080/SnapshotJPEG?Resolution=640x480&Quality=Standard&r=0" alt="Central Federal Savings facing the intersection of 10th Street and Rolla Street" title="Central Federal Savings facing the intersection of 10th Street and Rolla Street" onload="refreshWebcam(this)"/>
   </body>
 </html>
