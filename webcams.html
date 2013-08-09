@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Webcams for Rolla, MO</title>
+    
+    <script type="text/javascript">
+      // https://www6.modot.mo.gov/modotccw/ModotCamCaptureWeb/GetCamImage.ashx?id=DCD63_kingshighway&random=1376055912789
+      function refreshMoDOT(element) {
+          setTimeout(function() {
+              element.src = element.src.split('&')[0] + '&t=' + new Date().getTime();
+          }, 2000); // refresh every 2 seconds
+      }
+    </script>
+  </head>
+  <body>
+    <img src="https://www6.modot.mo.gov/modotccw/ModotCamCaptureWeb/GetCamImage.ashx?id=DCD63_kingshighway" alt="MoDOT traffic camera on the intersection of Kingshighway and US-63" title="MoDOT traffic camera on the intersection of Kingshighway and US-63" onload="refreshMoDOT(this)" />
+  </body>
+</html>
